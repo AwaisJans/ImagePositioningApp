@@ -15,18 +15,28 @@ import com.jans.constraints.image.positioning.app.R
 import com.jans.constraints.image.positioning.app.adapters.DashboardAdapter
 import com.jans.constraints.image.positioning.app.databinding.ActivityImagePositioningBinding
 import com.jans.constraints.image.positioning.app.model.DashboardModel
-import com.jans.constraints.image.positioning.app.utils.ConfigApp.Companion.readJsonFile
+import com.jans.constraints.image.positioning.app.utils.RVUtils.Companion.readJsonFile
+import com.jans.constraints.image.positioning.app.utils.ScreenUtil.Companion.calculateScreenHeightWidth
 
 
 class ImagePositioningScreen : AppCompatActivity() {
 
     private lateinit var b: ActivityImagePositioningBinding
 
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivityImagePositioningBinding.inflate(layoutInflater)
         setContentView(b.root)
+
+        // Getting Screen Height and Screen Width
+        val screenWidthAndHeight = calculateScreenHeightWidth(this)
+        val screenHeight = screenWidthAndHeight[1]
+        val screenWidth = screenWidthAndHeight[0]
+
+        val widthAndHeightStr = "Screen Height: $screenHeight\nScreen Width: $screenWidth"
+        b.tvDetails.text = widthAndHeightStr
 
         setUpDashboardRV()
         buttonsInit()
