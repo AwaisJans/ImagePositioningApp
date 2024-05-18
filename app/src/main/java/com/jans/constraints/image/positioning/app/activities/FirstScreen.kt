@@ -9,7 +9,7 @@ class FirstScreen : AppCompatActivity() {
 
     private lateinit var b: ActivityFirstBinding
 
-    // Initial Branch - Saturday, 18th May 2024
+    // Initial Branch - Saturday, 18th May 2024 - New Project
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivityFirstBinding.inflate(layoutInflater)
